@@ -3,9 +3,9 @@ package de.ehrenchris.speedtest.data.model;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 
-//@Entity
+@Entity
 public class Server {
-/*
+
 	private double latency;
 	private String name;
 	private String url;
@@ -18,7 +18,8 @@ public class Server {
 	private double lat;
 	
 	@Id
-	private int id;
+	private long id;
+	
 	private double d;
 
 	public double getLatency() {
@@ -101,11 +102,11 @@ public class Server {
 		this.lat = lat;
 	}
 
-	public int getId() {
+	public long getId() {
 		return id;
 	}
 
-	public void setId(int id) {
+	public void setId(long id) {
 		this.id = id;
 	}
 
@@ -116,5 +117,5 @@ public class Server {
 	public void setD(double d) {
 		this.d = d;
 	}
-	*/
+	
 }

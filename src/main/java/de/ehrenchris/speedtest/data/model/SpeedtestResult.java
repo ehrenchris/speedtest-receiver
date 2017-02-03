@@ -5,15 +5,16 @@ package de.ehrenchris.speedtest.data.model;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 /**
  * @author christian.boehme
  */
-//@Entity
+@Entity
 public class SpeedtestResult{
-	/*
+	
 	@Id
-    @GeneratedValue
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long speedtestResultId;
 	
 	private double download;
@@ -21,10 +22,9 @@ public class SpeedtestResult{
 	private double ping;
 	private double upload;
 	
-	private Server server;
+	//private Server server;
 	
 	public SpeedtestResult(){	
-		
 	}
 
 	public double getDownload() {
@@ -58,7 +58,8 @@ public class SpeedtestResult{
 	public void setUpload(double upload) {
 		this.upload = upload;
 	}
-
+	
+	/*
 	public Server getServer() {
 		return server;
 	}
@@ -66,13 +67,6 @@ public class SpeedtestResult{
 	public void setServer(Server server) {
 		this.server = server;
 	}
-
-	public long getSpeedtestResultId() {
-		return speedtestResultId;
-	}
-
-	public void setSpeedtestResultId(long speedtestResultId) {
-		this.speedtestResultId = speedtestResultId;
-	}
 */
+
 }
