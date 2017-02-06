@@ -7,14 +7,16 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
 /**
  * @author christian.boehme
  */
 @Entity
+@Table(name = "speedtestresult")
 public class SpeedtestResult{
 	
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long speedtestResultId;
 	
 	private double download;
@@ -22,11 +24,13 @@ public class SpeedtestResult{
 	private double ping;
 	private double upload;
 	
-	//private Server server;
+	private Server server;
 	
 	public SpeedtestResult(){	
 	}
 
+	
+	
 	public double getDownload() {
 		return download;
 	}
@@ -59,7 +63,8 @@ public class SpeedtestResult{
 		this.upload = upload;
 	}
 	
-	/*
+	@ManyToOne
+    @JoinColumn(name = "server_id")
 	public Server getServer() {
 		return server;
 	}
@@ -67,6 +72,15 @@ public class SpeedtestResult{
 	public void setServer(Server server) {
 		this.server = server;
 	}
-*/
+
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	public long getSpeedtestResultId() {
+		return speedtestResultId;
+	}
+
+	public void setSpeedtestResultId(long speedtestResultId) {
+		this.speedtestResultId = speedtestResultId;
+	}
 
 }

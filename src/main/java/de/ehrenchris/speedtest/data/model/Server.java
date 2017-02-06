@@ -1,9 +1,15 @@
 package de.ehrenchris.speedtest.data.model;
 
+import java.util.Set;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
 
 @Entity
+@Table(name = "server")
 public class Server {
 
 	private double latency;
@@ -16,8 +22,9 @@ public class Server {
 	private String sponsor;
 	private String url2;
 	private double lat;
+	private Set<SpeedtestResult> speedtestResult; 
 	
-	@Id
+	
 	private long id;
 	
 	private double d;
@@ -101,7 +108,8 @@ public class Server {
 	public void setLat(double lat) {
 		this.lat = lat;
 	}
-
+	
+	@Id
 	public long getId() {
 		return id;
 	}
@@ -118,4 +126,13 @@ public class Server {
 		this.d = d;
 	}
 	
+	@OneToMany(mappedBy = "server", cascade = CascadeType.ALL)
+	public Set<SpeedtestResult> getSpeedtestResult() {
+		return speedtestResult;
+	}
+
+	public void setSpeedtestResult(Set<SpeedtestResult> speedtestResult) {
+		this.speedtestResult = speedtestResult;
+	}
+	    
 }
